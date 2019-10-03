@@ -1,5 +1,8 @@
-class TDDExerciseTest extends org.scalatest.FunSuite {
-  test("CubeCalculator.cube") {
-    assert(TDDExercise.cube(3) === 27)
+import org.scalatest._
+
+class TDDExerciseSpec extends FlatSpec with Matchers {
+  val mockTransactions = Seq.empty[Transaction]
+  "A Stack" should "pop values in last-in-first-out order" in {
+
   }
 }
