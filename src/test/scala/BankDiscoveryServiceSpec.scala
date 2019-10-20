@@ -22,6 +22,6 @@ class BankDiscoveryServiceSpec extends FlatSpec with Matchers {
       Transaction("2016-05-23", "Video streaming", None, -99)
     )
     val result2 = BankDiscoveryService.findSubscriptions(testData2)
-    result2 shouldBe Seq(Subscription("Video streaming", 30, 99))
+    result2 shouldBe Seq.empty
   }
 }

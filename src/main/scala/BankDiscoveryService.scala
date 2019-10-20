@@ -4,9 +4,11 @@ object BankDiscoveryService {
     groupByText.flatMap {
       case (text, sameTextTrans) if sameTextTrans.length > 1 =>
         val groupByAmount = sameTextTrans.groupBy(_.amount).toSeq
-        groupByAmount.map {
-          case (amount, sameAmountTrans) if sameAmountTrans.length > 1 =>
-            Subscription(text, 30, amount * -1)
+        groupByAmount.flatMap {
+          case (amount: Int, sameAmountTrans) if sameAmountTrans.length > 1 =>
+            Some(Subscription(text, 30, amount * -1))
+          case _ =>
+            None
         }
     }
   }
